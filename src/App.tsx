@@ -3,7 +3,6 @@ import TheNavbar from "./components/layouts/TheNabar";
 import React from "react";
 import TheSidebar from "./components/layouts/TheSideBar";
 import TheContent from "./components/layouts/TheContent";
-import ResponsiveAppBar from "./components/base/test";
 
 export default function App() {
   const [open, setOpen] = React.useState(false);
@@ -13,11 +12,17 @@ export default function App() {
   };
 
   return (
-    <Container maxWidth="lg" sx={{ display: "flex" }}>
-      {/* <TheNavbar isOpenSidebar={open} handlerOpenSidebar={openSidebar} />
-      <TheSidebar handlerCloseSidebar={openSidebar} isOpen={open} />
-      <TheContent /> */}
-      <ResponsiveAppBar />
+    <Container
+      maxWidth="xl"
+      sx={{ display: "flex", flexDirection: "column" }}
+      disableGutters
+    >
+      <TheNavbar isOpenSidebar={open} handlerOpenSidebar={openSidebar} />
+
+      <Container maxWidth="xl" sx={{ display: "flex" }} disableGutters>
+        <TheSidebar handlerCloseSidebar={openSidebar} isOpen={open} />
+        <TheContent />
+      </Container>
     </Container>
   );
 }

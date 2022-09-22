@@ -1,16 +1,14 @@
 import * as React from "react";
-import { styled,  Theme, CSSObject } from "@mui/material/styles";
+import { styled, Theme, CSSObject } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
-import  { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
+import { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import IconButton from "@mui/material/IconButton";
 
-import {
-  MdKeyboardArrowLeft,
-  MdKeyboardArrowRight,
-} from "react-icons/md";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 import SidebarListItems from "../childs-components/TheSidebar/SidebarListItems";
+import { Container } from "@mui/system";
 
 const drawerWidth = 240;
 const openedMixin = (theme: Theme): CSSObject => ({
@@ -39,7 +37,6 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   alignItems: "center",
   justifyContent: "flex-end",
   padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
   ...theme.mixins.toolbar,
 }));
 
@@ -54,6 +51,11 @@ const Drawer = styled(MuiDrawer, {
   flexShrink: 0,
   whiteSpace: "nowrap",
   boxSizing: "border-box",
+
+  "& .MuiPaper-root": {
+    position:'relative'
+  },
+
   ...(open && {
     ...openedMixin(theme),
     "& .MuiDrawer-paper": openedMixin(theme),
@@ -72,12 +74,12 @@ export default function TheSidebar({ handlerCloseSidebar, isOpen }: props) {
   return (
     <Box sx={{ display: "flex" }}>
       {/* The sidebar */}
-       
-      <Drawer variant="permanent" open={isOpen}  anchor="right" >
+
+      <Drawer variant="permanent" open={isOpen} anchor="right">
         {/* Header Sidebar */}
         <DrawerHeader>
           <IconButton onClick={handlerCloseSidebar}>
-            {isOpen ? <MdKeyboardArrowRight /> : <MdKeyboardArrowLeft /> }
+            {isOpen ? <MdKeyboardArrowRight /> : <MdKeyboardArrowLeft />}
           </IconButton>
         </DrawerHeader>
 
