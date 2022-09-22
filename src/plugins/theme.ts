@@ -1,32 +1,10 @@
-import { createTheme, PaletteColorOptions } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
 
-// add Custom Color Palet
-declare module "@mui/material/styles" {
-  interface Palette {
-    customColor: PaletteColorOptions;
-  }
-  interface PaletteOptions {
-    customColor: PaletteColorOptions;
-  }
-}
-
-// Add custom color to Button Compoenent
-declare module "@mui/material/Button" {
-  interface ButtonPropsColorOverrides {
-    customColor: true;
-  }
-}
-
-const theme = createTheme({
+let theme = createTheme({
   direction: "rtl",
 
   // color palette
   palette: {
-    // custom color palet
-    customColor: {
-      main: "red",
-      contrastText: "#fff",
-    },
     // background: {
     //   background: "#EBEBEB",
     // },
@@ -40,8 +18,11 @@ const theme = createTheme({
 
   // typography ( font-family - size ...)
   typography: {
-    fontFamily: "Estedad",
+    allVariants: {
+      fontFamily: "Estedad",
+    },
   },
+
   components: {
     MuiPaper: {
       styleOverrides: {
@@ -87,10 +68,6 @@ const theme = createTheme({
         }),
       },
     },
-
   },
 });
-
 export default theme;
-
-// PrivateSwitchBase - input;

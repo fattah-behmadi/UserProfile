@@ -7,8 +7,7 @@ type colorButton =
   | "success"
   | "error"
   | "info"
-  | "warning"
-  | "customColor";
+  | "warning";
 interface props {
   children?: React.ReactNode;
   type?: "text" | "outlined" | "contained";
