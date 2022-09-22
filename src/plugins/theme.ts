@@ -62,6 +62,7 @@ let theme = createTheme({
       styleOverrides: {
         root: ({ theme }) => ({
           height: "56px",
+          borderRadius: 12,
           "&:hover .MuiOutlinedInput-notchedOutline": {
             borderColor: theme.palette.primary.main,
           },
