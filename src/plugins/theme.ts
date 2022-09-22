@@ -18,9 +18,8 @@ declare module "@mui/material/Button" {
 }
 
 const theme = createTheme({
+  direction: "rtl",
 
-  direction: 'rtl',
-  
   // color palette
   palette: {
     // custom color palet
@@ -88,15 +87,7 @@ const theme = createTheme({
         }),
       },
     },
-    // MuiTypography: {
-    //   styleOverrides: {
-    //     root: ({ theme }) => ({
-    //       "&:hover ": {
-    //         color: theme.palette.error,
-    //       },
-    //     }),
-    //   },
-    // },
+
   },
 });
 

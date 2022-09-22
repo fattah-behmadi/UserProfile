@@ -1,7 +1,7 @@
 @import "./font.css";
 
 body {
-  font-family: "Estedad";
+  font-family: "Estedad" !important;
   background-color: "#EBEBEB";
 }
 
@@ -20,10 +20,8 @@ body {
   border-radius: 1.5rem;
 }
 
-
-svg{
+svg {
   width: inherit;
   height: inherit;
   color: currentColor;
-  fill: currentColor;
 }

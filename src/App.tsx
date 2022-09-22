@@ -5,7 +5,7 @@ import TheSidebar from "./components/layouts/TheSideBar";
 import TheContent from "./components/layouts/TheContent";
 
 export default function App() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
 
   const openSidebar = () => {
     setOpen(!open);
@@ -14,12 +14,13 @@ export default function App() {
   return (
     <Container
       maxWidth="xl"
-      sx={{ display: "flex", flexDirection: "column" }}
+    
+      sx={{ display: "flex", flexDirection: "column",height:'100vh' }}
       disableGutters
     >
       <TheNavbar isOpenSidebar={open} handlerOpenSidebar={openSidebar} />
 
-      <Container maxWidth="xl" sx={{ display: "flex" }} disableGutters>
+      <Container maxWidth="xl" sx={{ display: "flex" ,height:'inherit'}} disableGutters>
         <TheSidebar handlerCloseSidebar={openSidebar} isOpen={open} />
         <TheContent />
       </Container>

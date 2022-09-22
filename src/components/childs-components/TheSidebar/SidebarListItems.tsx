@@ -1,8 +1,13 @@
 import List from "@mui/material/List";
 import SidebarItem from "./SidebarItem";
-
-import { MdOutlineEmail, MdInput } from "react-icons/md";
 import { IconType } from "react-icons/lib";
+
+import {
+  TbLayoutDashboard,
+  TbInfoSquare,
+  TbReportSearch,
+  TbSettings,
+} from "react-icons/tb";
 
 interface props {
   state: boolean;
@@ -16,13 +21,23 @@ interface itemType {
 export default function SidebarListItems({ state }: props) {
   const itemsList: itemType[] = [
     {
-      title: "E-mail",
-      icon: MdInput,
+      title: "داشبورد",
+      icon: TbLayoutDashboard,
       isAdmin: true,
     },
     {
-      title: "Input",
-      icon: MdOutlineEmail,
+      title: "اطلاعات",
+      icon: TbInfoSquare,
+      isAdmin: true,
+    },
+    {
+      title: "گزارشات",
+      icon: TbReportSearch,
+      isAdmin: true,
+    },
+    {
+      title: "تنظیمات",
+      icon: TbSettings,
       isAdmin: true,
     },
   ];

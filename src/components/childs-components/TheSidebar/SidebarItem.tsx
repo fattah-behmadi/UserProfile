@@ -2,8 +2,9 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import React, { cloneElement, FunctionComponent } from "react";
+import React from "react";
 import { IconType } from "react-icons/lib";
+import theme from "../../../plugins/theme";
 
 interface props {
   text: string;
@@ -25,14 +26,24 @@ export default function SidebarItem({ text, icon, state }: props) {
         >
           <ListItemIcon
             sx={{
-              minWidth: 0,
               ml: state ? 3 : "auto",
               justifyContent: "center",
+              width: "2.5rem",
+              height: "2.5rem",
+              color: theme.palette.common.white,
+
             }}
           >
             <ItemIcon />
           </ListItemIcon>
-          <ListItemText primary={text} sx={{ opacity: state ? 1 : 0,textAlign:'right' }} />
+          <ListItemText
+            primary={text}
+            sx={{
+              opacity: state ? 1 : 0,
+              textAlign: "right",
+              color: theme.palette.common.white,
+            }}
+          />
         </ListItemButton>
       </ListItem>
     </>

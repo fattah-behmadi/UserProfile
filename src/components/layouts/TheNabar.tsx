@@ -16,8 +16,26 @@ import { ListItemIcon } from "@mui/material";
 import { useEffect } from "react";
 import { useState } from "react";
 
-const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const pages = [
+  {
+    title: "داشبورد",
+    to: "",
+  },
+  {
+    title: "پروفایل",
+    to: "",
+  },
+  {
+    title: "اطلاعات",
+    to: "",
+  },
+  {
+    title: "گزارش",
+    to: "",
+  },
+];
+
+const settings = ["پروفایل", "حساب کاربری", "داشبورد", "خروج"];
 
 interface props {
   isOpenSidebar: boolean;
@@ -57,133 +75,136 @@ export default function TheNavbar({
   };
 
   return (
-    <>
-      <Box>
-        <ToolBar
+    <Box
+      sx={{
+        boxShadow: "0px 4px 160px rgba(0, 0, 0, 0.13)",
+      }}
+    >
+      <ToolBar
+        sx={{
+          width: "inherit",
+          maxHeight: "4.25rem",
+          px: "1rem",
+        }}
+      >
+        <IconButton
+          color="primary"
           sx={{
-            width: "inherit",
-            maxHeight: "4.25rem",
-            px: "1rem",
+            display: { xs: "none", md: "flex" },
+            mr: 1,
+            ...(isOpenSidebar && { display: "none" }),
+          }}
+          onClick={handlerOpenSidebar}
+          size="large"
+        >
+          <AiFillApple />
+        </IconButton>
+
+        {/* Nav Items */}
+        <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <IconButton
+            size="large"
+            aria-label="account of current user"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            onClick={handleOpenNavMenu}
+            color="inherit"
+          >
+            <FiMenu />
+          </IconButton>
+          <Menu
+            id="menu-appbar"
+            anchorEl={anchorElNav}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "left",
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "left",
+            }}
+            open={Boolean(anchorElNav)}
+            onClose={handleCloseNavMenu}
+            sx={{
+              display: { xs: "block", md: "none" },
+            }}
+          >
+            {pages.map((page) => (
+              <MenuItem key={page.title} onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">{page.title}</Typography>
+              </MenuItem>
+            ))}
+          </Menu>
+        </Box>
+
+        <ListItemIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}>
+          <AiFillApple />
+        </ListItemIcon>
+
+        <Typography
+          variant="h5"
+          noWrap
+          component="a"
+          href=""
+          sx={{
+            mr: 2,
+            display: { xs: "flex", md: "none" },
+            flexGrow: 1,
+            fontFamily: "monospace",
+            fontWeight: 700,
+            letterSpacing: ".3rem",
+            color: "inherit",
+            textDecoration: "none",
           }}
         >
-          <IconButton
-            color="inherit"
-            sx={{
-              display: { xs: "none", md: "flex" },
-              mr: 1,
-              ...(isOpenSidebar && { display: "none" }),
-            }}
-            onClick={handlerOpenSidebar}
-          >
-            <AiFillApple />
-          </IconButton>
+          Apple
+        </Typography>
 
-          {/* Nav Items */}
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
+        {/* Nav Items sm */}
+        <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          {pages.map((page) => (
+            <Button
+              key={page.title}
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, display: "block" }}
             >
-              <FiMenu />
+              {page.title}
+            </Button>
+          ))}
+        </Box>
+
+        {/* Show Setting popup */}
+        <Box sx={{ flexGrow: 0 }}>
+          <Tooltip title="Open settings">
+            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <Avatar alt="Remy Sharp" src={userAvatar} />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-
-          <ListItemIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}>
-            <AiFillApple />
-          </ListItemIcon>
-
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
+          </Tooltip>
+          <Menu
+            sx={{ mt: "45px" }}
+            id="menu-appbar"
+            anchorEl={anchorElUser}
+            anchorOrigin={{
+              vertical: "top",
+              horizontal: "right",
             }}
+            keepMounted
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            open={Boolean(anchorElUser)}
+            onClose={handleCloseUserMenu}
           >
-            Apple
-          </Typography>
-
-          {/* Nav Items sm */}
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, display: "block" }}
-              >
-                {page}
-              </Button>
+            {settings.map((setting) => (
+              <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <Typography textAlign="center">{setting}</Typography>
+              </MenuItem>
             ))}
-          </Box>
-
-          {/* Show Setting popup */}
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src={userAvatar} />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </ToolBar>
-      </Box>
-    </>
+          </Menu>
+        </Box>
+      </ToolBar>
+    </Box>
   );
 }
