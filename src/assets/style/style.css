@@ -1,0 +1,29 @@
+@import "./font.css";
+
+body {
+  font-family: "Estedad";
+  background-color: "#EBEBEB";
+}
+
+/* change theme Scrollbar */
+*::-webkit-scrollbar {
+  width: 0.3em;
+}
+
+*::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #4763e3;
+  outline: 1px solid #182154;
+  border-radius: 1.5rem;
+}
+
+
+svg{
+  width: inherit;
+  height: inherit;
+  color: currentColor;
+  fill: currentColor;
+}

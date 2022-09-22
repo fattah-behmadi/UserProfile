@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Estedad';
+  src: url(../font/Estedad.eot);
+  src: url(../font/Estedad.eot?#iefix) format('embedded-opentype'),
+       url(../font/Estedad.woff2) format('woff2'),
+       url(../font/Estedad.woff) format('woff'),
+       url(../font/Estedad.ttf) format('truetype'),
+       url(../font/Estedad.svg#Estedad) format('svg'),
+       url(../font/Estedad.otf) format('otf');
+}
