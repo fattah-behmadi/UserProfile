@@ -2,6 +2,7 @@ import UiInput from "components/base/UiInput";
 import { Box, Grid } from "@mui/material";
 import { useState } from "react";
 import UiButton from "components/base/UiButton";
+import UiDatePicker from "components/base/UiDatePicker";
 
 interface IUser {
   name: string;
@@ -41,7 +42,9 @@ export default function Form() {
           />
         </Grid>
 
-        <Grid item xs={10}></Grid>
+        <Grid item xs={10}>
+          <UiDatePicker />
+        </Grid>
         <Grid item xs={10}>
           <UiButton handleClick={submit} type="contained">
             ثبت کاربر{" "}
