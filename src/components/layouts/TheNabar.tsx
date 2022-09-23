@@ -46,6 +46,7 @@ export default function TheNavbar({
   handlerOpenSidebar,
 }: props) {
   const [userAvatar, setUserAvatar] = useState<string>();
+  
   useEffect(() => {
     import("../../assets/img/user.jpg").then((image) =>
       setUserAvatar(image.default)
