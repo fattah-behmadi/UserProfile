@@ -3,12 +3,9 @@ import { Box, Grid } from "@mui/material";
 import { useState } from "react";
 import UiButton from "components/base/UiButton";
 import UiDatePicker from "components/base/UiDatePicker";
+import {IUser} from 'interface/Entity'
 
-interface IUser {
-  name: string;
-  lastName: string;
-  birdDay: Date | null;
-}
+
 export default function Form() {
   const [user, setUser] = useState<IUser>({
     name: "",

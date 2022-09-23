@@ -9,16 +9,12 @@ import {
   TbSettings,
 } from "react-icons/tb";
 
-interface props {
-  state: boolean;
-}
-
 interface itemType {
   title: string;
   icon: IconType;
   isAdmin: boolean;
 }
-export default function SidebarListItems({ state }: props) {
+export default function SidebarListItems({ state }: { state: boolean }) {
   const itemsList: itemType[] = [
     {
       title: "داشبورد",

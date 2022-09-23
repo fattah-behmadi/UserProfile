@@ -1,10 +1,8 @@
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
+import { ListItemText, ListItemIcon, ListItemButton ,ListItem} from "@mui/material";
+
 import React from "react";
 import { IconType } from "react-icons/lib";
-import theme from "../../../plugins/theme";
+import theme from "plugins/theme";
 
 interface props {
   text: string;
@@ -31,7 +29,6 @@ export default function SidebarItem({ text, icon, state }: props) {
               width: "2.5rem",
               height: "2.5rem",
               color: theme.palette.common.white,
-
             }}
           >
             <ItemIcon />

@@ -1,13 +1,7 @@
 import { Button } from "@mui/material";
 import React from "react";
+import { colorButton } from "interface/type";
 
-type colorButton =
-  | "primary"
-  | "secondary"
-  | "success"
-  | "error"
-  | "info"
-  | "warning";
 interface props {
   children?: React.ReactNode;
   type?: "text" | "outlined" | "contained";

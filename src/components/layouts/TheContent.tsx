@@ -1,7 +1,7 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Profile from "../pages/Profile";
+import Profile from "components/pages/Profile";
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",

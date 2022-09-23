@@ -4,8 +4,8 @@ import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
-import SidebarListItems from "../childs-components/TheSidebar/SidebarListItems";
-import theme from "../../plugins/theme";
+import SidebarListItems from "components/childs-components/TheSidebar/SidebarListItems";
+import theme from "plugins/theme";
 
 const drawerWidth = 240;
 const openedMixin = (theme: Theme): CSSObject => ({

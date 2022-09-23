@@ -1,5 +1,7 @@
 import { InnerImageZoom } from "react-inner-image-zoom";
-import "./style-zoom.css";
+import 'assets/style/image-zoom.css'
+
+
 const ImageZoom = ({
   imagePath,
   imgZoom,
