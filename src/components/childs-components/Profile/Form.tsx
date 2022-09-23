@@ -7,13 +7,13 @@ import UiDatePicker from "components/base/UiDatePicker";
 interface IUser {
   name: string;
   lastName: string;
-  birdDay?: Date;
+  birdDay: Date | null;
 }
 export default function Form() {
   const [user, setUser] = useState<IUser>({
     name: "",
     lastName: "",
-    birdDay: undefined,
+    birdDay: null,
   });
 
   const submit = () => {};
@@ -43,9 +43,14 @@ export default function Form() {
         </Grid>
 
         <Grid item xs={10}>
-          <UiDatePicker />
+          <UiDatePicker
+            handlerChange={(value) =>
+              setUser((user) => ({ ...user, birdDay: value }))
+            }
+            value={user.birdDay}
+          />
         </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={12}>
           <UiButton handleClick={submit} type="contained">
             ثبت کاربر{" "}
           </UiButton>

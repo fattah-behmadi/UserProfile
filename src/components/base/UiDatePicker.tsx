@@ -4,16 +4,18 @@ import AdapterJalali from "@date-io/date-fns-jalali";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 
-export default function UiDatePicker() {
-  const [value, setValue] = React.useState<Date | null>(new Date());
-
+interface props {
+  handlerChange: (dateTime: Date | null) => void;
+  value: Date | null;
+}
+export default function UiDatePicker({ value, handlerChange }: props) {
   return (
     <LocalizationProvider dateAdapter={AdapterJalali}>
       <DatePicker
         mask="____/__/__"
         value={value}
-        onChange={(newValue) => setValue(newValue)}
-        renderInput={(params) => <TextField {...params} />}
+        onChange={handlerChange}
+        renderInput={(params) => <TextField {...params}/>}
       />
     </LocalizationProvider>
   );
