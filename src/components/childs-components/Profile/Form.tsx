@@ -18,7 +18,8 @@ export default function Form() {
   return (
     <Box sx={{}}>
       <Grid container spacing={2}>
-        <Grid item xs={6}>
+      
+        <Grid item md={6}>
           <UiInput
             handlerChange={(value) =>
               setUser((user) => ({ ...user, name: value }))
@@ -28,7 +29,8 @@ export default function Form() {
             placeholder="نام"
           />
         </Grid>
-        <Grid item xs={6}>
+    
+        <Grid item md={6}>
           <UiInput
             handlerChange={(value) =>
               setUser((user) => ({ ...user, lastName: value }))
@@ -39,7 +41,7 @@ export default function Form() {
           />
         </Grid>
 
-        <Grid item xs={10}>
+        <Grid item md={10}>
           <UiDatePicker
             handlerChange={(value) =>
               setUser((user) => ({ ...user, birdDay: value }))
@@ -47,11 +49,13 @@ export default function Form() {
             value={user.birdDay}
           />
         </Grid>
-        <Grid item xs={12}>
+
+        <Grid item md={12}>
           <UiButton handleClick={submit} type="contained">
             ثبت کاربر{" "}
           </UiButton>
         </Grid>
+
       </Grid>
     </Box>
   );

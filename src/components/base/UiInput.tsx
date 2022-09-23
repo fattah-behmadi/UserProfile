@@ -18,7 +18,7 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
     border: "1px solid #ced4da",
     position: "relative",
     fontSize: 12,
-    width: 260,
+    width: "100%",
     padding: "10px 12px",
     transition: theme.transitions.create([
       "border-color",
@@ -49,7 +49,12 @@ const UiInput: React.FC<Props> = ({
   };
 
   return (
-    <FormControl variant="standard">
+    <FormControl
+      variant="standard"
+      sx={{
+        width: "100%",
+      }}
+    >
       <InputLabel
         shrink
         htmlFor="bootstrap-input"
@@ -59,7 +64,6 @@ const UiInput: React.FC<Props> = ({
           fontSize: 16,
           position: "relative",
           transform: "unset",
-
         }}
       >
         {label}

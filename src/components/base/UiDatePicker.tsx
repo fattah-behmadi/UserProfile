@@ -15,7 +15,15 @@ export default function UiDatePicker({ value, handlerChange }: props) {
         mask="____/__/__"
         value={value}
         onChange={handlerChange}
-        renderInput={(params) => <TextField {...params}/>}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            sx={{
+              width: "100%",
+            }}
+            placeholder="تاریخ تولد"
+          />
+        )}
       />
     </LocalizationProvider>
   );
